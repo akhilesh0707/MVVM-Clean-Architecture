@@ -1,10 +1,10 @@
-package com.aqube.truecallertask.di.module
+package com.aqube.truecallertask.injection.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.aqube.truecaller.presentation.BlogViewModel
-import com.aqube.truecallertask.di.ViewModelFactory
-import com.aqube.truecallertask.di.ViewModelKey
+import com.aqube.truecallertask.injection.ViewModelFactory
+import com.aqube.truecallertask.injection.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

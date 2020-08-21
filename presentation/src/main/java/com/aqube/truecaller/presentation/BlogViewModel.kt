@@ -3,20 +3,24 @@ package com.aqube.truecaller.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.aqube.truecaller.domain.interector.blogs.GetBlog
+import com.aqube.truecaller.domain.interector.blogs.Blog10thCharacter
+import com.aqube.truecaller.domain.interector.blogs.BlogEvery10thCharacter
+import com.aqube.truecaller.domain.interector.blogs.BlogWordCounter
 import com.aqube.truecaller.presentation.state.Resource
 import com.aqube.truecaller.presentation.state.ResourceState
 import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
 class BlogViewModel @Inject constructor(
-    private val getBlog: GetBlog
+    private val blog10thCharacter: Blog10thCharacter,
+    private val blogEvery10thCharacter: BlogEvery10thCharacter,
+    private val wordCounter: BlogWordCounter
 ) : ViewModel() {
 
     private val liveData: MutableLiveData<Resource<String>> = MutableLiveData()
 
     override fun onCleared() {
-        getBlog.dispose()
+        blog10thCharacter.dispose()
         super.onCleared()
     }
 
@@ -26,10 +30,11 @@ class BlogViewModel @Inject constructor(
 
     fun fetchBlog() {
         liveData.postValue(Resource(ResourceState.LOADING))
-        getBlog.execute(ProjectsSubscriber())
+        blog10thCharacter.execute(BlogSubscriber())
     }
 
-    inner class ProjectsSubscriber : DisposableObserver<String>() {
+    inner class BlogSubscriber : DisposableObserver<String>() {
+
         override fun onComplete() {}
 
         override fun onNext(t: String) {

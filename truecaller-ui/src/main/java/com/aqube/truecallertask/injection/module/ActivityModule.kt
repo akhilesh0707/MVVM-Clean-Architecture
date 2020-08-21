@@ -1,8 +1,8 @@
-package com.aqube.truecallertask.di.module
+package com.aqube.truecallertask.injection.module
 
 import com.aqube.truecaller.domain.executor.PostExecutionThread
-import com.aqube.truecallertask.blogs.MainActivity
-import com.aqube.truecallertask.UIThread
+import com.aqube.truecallertask.ui.MainActivity
+import com.aqube.truecallertask.base.UIThread
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

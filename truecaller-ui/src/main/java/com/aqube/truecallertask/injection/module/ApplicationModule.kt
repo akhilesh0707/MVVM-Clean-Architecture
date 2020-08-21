@@ -1,4 +1,4 @@
-package com.aqube.truecallertask.di.module
+package com.aqube.truecallertask.injection.module
 
 import android.app.Application
 import android.content.Context

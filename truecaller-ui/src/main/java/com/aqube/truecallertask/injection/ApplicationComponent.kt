@@ -1,8 +1,8 @@
-package com.aqube.truecallertask.di
+package com.aqube.truecallertask.injection
 
 import android.app.Application
-import com.aqube.truecallertask.TrueCallerApplication
-import com.aqube.truecallertask.di.module.*
+import com.aqube.truecallertask.base.TrueCallerApplication
+import com.aqube.truecallertask.injection.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule

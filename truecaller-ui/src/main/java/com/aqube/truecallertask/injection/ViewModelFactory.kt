@@ -1,4 +1,4 @@
-package com.aqube.truecallertask.di
+package com.aqube.truecallertask.injection
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

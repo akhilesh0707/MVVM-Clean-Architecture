@@ -1,4 +1,4 @@
-package com.aqube.truecallertask
+package com.aqube.truecallertask.base
 
 import com.aqube.truecaller.domain.executor.PostExecutionThread
 import io.reactivex.Scheduler

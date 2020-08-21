@@ -1,8 +1,8 @@
-package com.aqube.truecallertask
+package com.aqube.truecallertask.base
 
 import android.app.Activity
 import android.app.Application
-import com.aqube.truecallertask.di.DaggerApplicationComponent
+import com.aqube.truecallertask.injection.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector

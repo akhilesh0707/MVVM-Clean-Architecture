@@ -1,4 +1,4 @@
-package com.aqube.truecallertask.di.module
+package com.aqube.truecallertask.injection.module
 
 import com.aqube.truecaller.data.repository.BlogRemote
 import com.aqube.truecaller.remote.BlogRemoteImpl

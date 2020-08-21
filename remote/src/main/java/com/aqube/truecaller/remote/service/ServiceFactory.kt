@@ -24,7 +24,7 @@ object ServiceFactory {
     private fun makeBlogService(okHttpClient: OkHttpClient, gson: Gson): BlogService {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(ScalarsConverterFactory.create()) //important
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

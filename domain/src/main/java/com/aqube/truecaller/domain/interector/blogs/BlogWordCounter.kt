@@ -6,7 +6,7 @@ import com.aqube.truecaller.domain.repository.BlogRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetBlog @Inject constructor(
+class BlogWordCounter @Inject constructor(
     private val blogRepository: BlogRepository,
     postExecutionThread: PostExecutionThread
 ) : ObservableUseCase<String, Nothing?>(postExecutionThread) {

@@ -1,4 +1,4 @@
-package com.aqube.truecallertask.di.module
+package com.aqube.truecallertask.injection.module
 
 import com.aqube.truecaller.data.BlogDataRepository
 import com.aqube.truecaller.domain.repository.BlogRepository
