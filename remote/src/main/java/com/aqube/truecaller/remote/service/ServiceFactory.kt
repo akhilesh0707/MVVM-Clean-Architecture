@@ -1,11 +1,15 @@
 package com.aqube.truecaller.remote.service
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
+
 
 object ServiceFactory {
 
@@ -13,13 +17,15 @@ object ServiceFactory {
 
     fun makeBlogService(isDebug: Boolean): BlogService {
         val okHttpClient = makeOkHttpClient(makeLoggingInterceptor(isDebug))
-        return makeBlogService(okHttpClient)
+        val gson = getGSONBuilder()
+        return makeBlogService(okHttpClient, gson)
     }
 
-    private fun makeBlogService(okHttpClient: OkHttpClient): BlogService {
+    private fun makeBlogService(okHttpClient: OkHttpClient, gson: Gson): BlogService {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(ScalarsConverterFactory.create()) //important
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
@@ -42,5 +48,11 @@ object ServiceFactory {
                 HttpLoggingInterceptor.Level.NONE
             }
         }
+    }
+
+    private fun getGSONBuilder(): Gson {
+        return GsonBuilder()
+            .setLenient()
+            .create()
     }
 }

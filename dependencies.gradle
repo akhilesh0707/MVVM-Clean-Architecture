@@ -13,7 +13,6 @@ ext {
     // Android Dependencies
     axAnnotation = '1.0.1'
     axAppcompat = '1.1.0-alpha01'
-    axRecyclerView = '1.1.0-alpha01'
     axCorektx = '1.1.0-alpha03'
     materialVersion = '1.1.0-alpha02'
     lifecycleVersion = '2.1.0-alpha01'
@@ -26,13 +25,13 @@ ext {
     javaxAnnotationVersion = '1.0'
     javaxInjectionVersion = '1'
 
-    // Dagger Network- (OkHttp, Retrofit, glide, logger)
+    // Dagger Network- (OkHttp, Retrofit, logger)
     daggerVersion = '2.20'
     gsonVersion = '2.8.5'
     okhttpVersion = '3.12.0'
     retrofitVersion = '2.4.0'
-    glideVersion = '4.8.0'
     timberVersion = '4.7.1'
+    scalarVersion = '2.3.0'  //For serialising JSONP add converter-scalars
 
     // Testing
     jUnitVersion = '4.13-beta-1'
@@ -79,18 +78,19 @@ ext {
     ]
 
     remoteDependencies = [
-            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            rxKotlin          : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
-            rxJava            : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            gson              : "com.google.code.gson:gson:$gsonVersion",
-            javaxAnnotations  : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
-            javaxInject       : "javax.inject:javax.inject:$javaxInjectionVersion",
-            androidAnnotations: "androidx.annotation:annotation:$axAnnotation",
-            okhttp            : "com.squareup.okhttp3:okhttp:$okhttpVersion",
-            okhttpInterceptor : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
-            retrofit          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            retrofitAdapter   : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxKotlin               : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxJava                 : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            gson                   : "com.google.code.gson:gson:$gsonVersion",
+            javaxAnnotations       : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            javaxInject            : "javax.inject:javax.inject:$javaxInjectionVersion",
+            androidAnnotations     : "androidx.annotation:annotation:$axAnnotation",
+            okhttp                 : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttpInterceptor      : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            retrofit               : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverter      : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            scalerConvertor        : "com.squareup.retrofit2:converter-scalars:$scalarVersion"
     ]
 
     remoteTestDependencies = [
@@ -133,13 +133,10 @@ ext {
             rxJava                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
             kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
-            glide                 : "com.github.bumptech.glide:glide:$glideVersion",
-            glideCompiler         : "com.github.bumptech.glide:compiler:$glideVersion",
             javaxAnnotations      : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
             javaxInject           : "javax.inject:javax.inject:$javaxInjectionVersion",
             androidAnnotations    : "androidx.annotation:annotation:$axAnnotation",
             appCompat             : "androidx.appcompat:appcompat:$axAppcompat",
-            recyclerView          : "androidx.recyclerview:recyclerview:$axRecyclerView",
             design                : "com.google.android.material:material:$materialVersion",
             timber                : "com.jakewharton.timber:timber:$timberVersion",
             daggerAndroid         : "com.google.dagger:dagger-android-support:$daggerVersion",

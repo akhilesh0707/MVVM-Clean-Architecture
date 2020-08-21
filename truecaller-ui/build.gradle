@@ -44,12 +44,65 @@ dependencies {
     implementation project(':presentation')
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation mobileUIDependencies.ktx
+    implementation mobileUIDependencies.dagger
+    implementation mobileUIDependencies.rxJava
+    implementation mobileUIDependencies.rxKotlin
+    implementation mobileUIDependencies.kotlin
+    implementation mobileUIDependencies.rxAndroid
+    implementation mobileUIDependencies.javaxAnnotations
+    implementation mobileUIDependencies.javaxInject
+    implementation mobileUIDependencies.androidAnnotations
+    implementation mobileUIDependencies.appCompat
+    implementation mobileUIDependencies.design
+    implementation mobileUIDependencies.timber
+    implementation(mobileUIDependencies.daggerAndroid) {
+        exclude group: 'com.android.support'
+    }
+    implementation mobileUIDependencies.constraintLayout
+    implementation mobileUIDependencies.lifecycleRuntime
+    implementation mobileUIDependencies.lifecycleExtensions
+    implementation mobileUIDependencies.lifecycleCommon
+    kapt mobileUIDependencies.daggerCompiler
+    kapt mobileUIDependencies.daggerAndroidProcessor
+
+    testImplementation mobileUITestDependencies.kotlinJUnit
+    testImplementation mobileUITestDependencies.testCore
+    testImplementation mobileUITestDependencies.testRunner
+    testImplementation mobileUITestDependencies.testRules
+    testImplementation mobileUITestDependencies.testExtJunit
+    testImplementation mobileUITestDependencies.rxIdler
+    testImplementation mobileUITestDependencies.robolectric
+    testImplementation mobileUITestDependencies.mockitoKotlin
+    testImplementation mobileUITestDependencies.espressoContrib
+    testImplementation mobileUITestDependencies.dagger
+    testImplementation(mobileUITestDependencies.daggerAndroid) {
+        exclude group: 'com.android.support'
+    }
+    kaptTest mobileUITestDependencies.daggerCompiler
+    kaptTest mobileUITestDependencies.daggerAndroidProcessor
+
+    androidTestImplementation mobileUITestDependencies.junit
+    androidTestImplementation mobileUITestDependencies.assertJ
+
+    androidTestImplementation mobileUITestDependencies.mockitoKotlin
+    androidTestImplementation mobileUITestDependencies.testRunner
+
+    androidTestImplementation mobileUITestDependencies.testRules
+    androidTestImplementation mobileUITestDependencies.testCore
+    androidTestImplementation mobileUITestDependencies.testExtJunit
+    androidTestImplementation (mobileUITestDependencies.mockitoAndroid)
+    androidTestImplementation mobileUITestDependencies.rxIdler
+    androidTestImplementation mobileUITestDependencies.mockitoAndroid
+    androidTestImplementation mobileUITestDependencies.dagger
+    androidTestImplementation(mobileUITestDependencies.daggerAndroid) {
+        exclude group: 'com.android.support'
+    }
+    androidTestImplementation mobileUITestDependencies.espressoCore
+    androidTestImplementation mobileUITestDependencies.espressoIntents
+    androidTestImplementation mobileUITestDependencies.espressoContrib
+    kaptAndroidTest mobileUITestDependencies.daggerCompiler
+    kaptAndroidTest mobileUITestDependencies.daggerAndroidProcessor
 
 }

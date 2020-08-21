@@ -5,8 +5,8 @@ import com.aqube.truecaller.remote.service.BlogService
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class ProjectsRemoteImpl @Inject constructor(
-    private val service: BlogService,
+class BlogRemoteImpl @Inject constructor(
+    private val service: BlogService
 ) : BlogRemote {
 
     override fun getBlogs(): Flowable<String> {

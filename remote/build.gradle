@@ -7,6 +7,7 @@ dependencies {
     implementation remoteDependencies.rxKotlin
     implementation remoteDependencies.rxJava
     implementation remoteDependencies.gson
+    implementation remoteDependencies.scalerConvertor
     implementation remoteDependencies.javaxAnnotations
     implementation remoteDependencies.javaxInject
     implementation remoteDependencies.androidAnnotations
