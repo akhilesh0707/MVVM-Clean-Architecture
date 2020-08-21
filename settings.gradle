@@ -1,0 +1,2 @@
+include ':domain', ':data', ':remote', ':presentation', ':truecaller-ui'
+rootProject.name = "TrueCallerTask"
