@@ -1,7 +1,7 @@
 package com.aqube.truecaller.data.repository
 
-import io.reactivex.Flowable
+import io.reactivex.Observable
 
 interface BlogDataSource {
-    fun getBlogs(): Flowable<String>
+    fun getBlogs(): Observable<String>
 }

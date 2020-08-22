@@ -1,9 +1,10 @@
 package com.aqube.truecaller.remote.service
 
 import io.reactivex.Flowable
+import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface BlogService {
     @GET("2018/01/22/life-as-an-android-engineer/")
-    fun getBlogResponse(): Flowable<String>
+    fun getBlogResponse(): Observable<String>
 }

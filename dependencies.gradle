@@ -113,7 +113,8 @@ ext {
             androidAnnotations : "androidx.annotation:annotation:$axAnnotation",
             lifecycleRuntime   : "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion",
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
-            lifecycleCommon    : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+            lifecycleCommon    : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
+            timber                : "com.jakewharton.timber:timber:$timberVersion",
     ]
 
     presentationTestDependencies = [

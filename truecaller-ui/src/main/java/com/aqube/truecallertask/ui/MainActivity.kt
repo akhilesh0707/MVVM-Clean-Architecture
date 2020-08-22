@@ -3,9 +3,8 @@ package com.aqube.truecallertask.ui
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import com.aqube.truecaller.presentation.BlogUIModel
 import com.aqube.truecaller.presentation.BlogViewModel
-import com.aqube.truecaller.presentation.state.Resource
-import com.aqube.truecaller.presentation.state.ResourceState
 import com.aqube.truecallertask.R
 import com.aqube.truecallertask.base.BaseActivity
 import com.aqube.truecallertask.extension.bindViewModel
@@ -14,7 +13,6 @@ import com.aqube.truecallertask.extension.makeVisible
 import com.aqube.truecallertask.injection.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
-import timber.log.Timber
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -34,22 +32,27 @@ class MainActivity : BaseActivity() {
         button.setOnClickListener { viewModel.fetchBlog() }
     }
 
-    private fun onUiModelChanged(resource: Resource<String>) {
-        when (resource.status) {
-            ResourceState.SUCCESS -> {
-                progressBar.makeGone()
-                textView.text = resource.data
-            }
-            ResourceState.LOADING -> {
+    private fun onUiModelChanged(uiModel: BlogUIModel) {
+        if (uiModel.isRedelivered)
+            return
+
+        when (uiModel) {
+            is BlogUIModel.Loading -> {
                 progressBar.makeVisible()
             }
-            ResourceState.ERROR -> {
+            is BlogUIModel.TenthCharacter -> {
+                textViewTenthCharacter.text = uiModel.tenthCharacter
+            }
+            is BlogUIModel.EveryTenthCharacter -> {
+                textViewEveryTenthCharacter.text = uiModel.everyTenthCharacter
+            }
+            is BlogUIModel.WordCount -> {
+                textViewWordCount.text = uiModel.wordCount
+            }
+            is BlogUIModel.Error -> {
                 progressBar.makeGone()
-                resource.message?.let { error ->
-                    Timber.e(error)
-                    findViewById<View?>(android.R.id.content)?.let { view ->
-                        Snackbar.make(view, error, Snackbar.LENGTH_INDEFINITE).show()
-                    }
+                findViewById<View?>(android.R.id.content)?.let { view ->
+                    Snackbar.make(view, uiModel.error, Snackbar.LENGTH_INDEFINITE).show()
                 }
             }
         }

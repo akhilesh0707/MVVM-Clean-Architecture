@@ -39,6 +39,7 @@ dependencies {
     implementation presentationDependencies.lifecycleRuntime
     implementation presentationDependencies.lifecycleExtensions
     implementation presentationDependencies.lifecycleCommon
+    implementation presentationDependencies.timber
     kapt presentationDependencies.daggerCompiler
 
     testImplementation presentationTestDependencies.junit

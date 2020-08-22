@@ -10,6 +10,6 @@ class BlogDataRepository @Inject constructor(
 ) : BlogRepository {
 
     override fun getBlogs(): Observable<String> {
-        return factory.getDataSource(false).getBlogs().toObservable()
+        return factory.getDataSource(false).getBlogs()
     }
 }
