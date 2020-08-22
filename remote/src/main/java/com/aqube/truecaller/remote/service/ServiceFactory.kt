@@ -16,15 +16,15 @@ object ServiceFactory {
 
     fun makeBlogService(isDebug: Boolean): BlogService {
         val okHttpClient = makeOkHttpClient(makeLoggingInterceptor(isDebug))
-        val gson = getGSONBuilder()
-        return makeBlogService(okHttpClient, gson)
+        val gSon = getGSONBuilder()
+        return makeBlogService(okHttpClient, gSon)
     }
 
-    private fun makeBlogService(okHttpClient: OkHttpClient, gson: Gson): BlogService {
+    private fun makeBlogService(okHttpClient: OkHttpClient, gSon: Gson): BlogService {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create(gSon))
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

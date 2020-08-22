@@ -1,6 +1,5 @@
 package com.aqube.truecaller.remote.service
 
-import io.reactivex.Flowable
 import io.reactivex.Observable
 import retrofit2.http.GET
 

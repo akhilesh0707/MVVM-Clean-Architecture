@@ -25,7 +25,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.getBlogs().observe(this, Observer {
+        viewModel.getBlog().observe(this, Observer {
             onUiModelChanged(it)
         })
 
@@ -33,20 +33,20 @@ class MainActivity : BaseActivity() {
     }
 
     private fun onUiModelChanged(uiModel: BlogUIModel) {
-        if (uiModel.isRedelivered)
-            return
-
         when (uiModel) {
             is BlogUIModel.Loading -> {
                 progressBar.makeVisible()
             }
             is BlogUIModel.TenthCharacter -> {
+                hideProgressBar()
                 textViewTenthCharacter.text = uiModel.tenthCharacter
             }
             is BlogUIModel.EveryTenthCharacter -> {
+                hideProgressBar()
                 textViewEveryTenthCharacter.text = uiModel.everyTenthCharacter
             }
             is BlogUIModel.WordCount -> {
+                hideProgressBar()
                 textViewWordCount.text = uiModel.wordCount
             }
             is BlogUIModel.Error -> {
@@ -56,5 +56,9 @@ class MainActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    private fun hideProgressBar() {
+        progressBar.makeGone()
     }
 }

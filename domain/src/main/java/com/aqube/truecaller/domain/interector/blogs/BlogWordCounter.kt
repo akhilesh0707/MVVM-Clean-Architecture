@@ -11,7 +11,7 @@ class BlogWordCounter @Inject constructor(
 ) : ObservableUseCase<String, Nothing?>() {
 
     override fun buildUseCaseObservable(params: Nothing?): Observable<String> {
-        return blogRepository.getBlogs()
+        return blogRepository.getBlog()
             .map {
                 val map = mutableMapOf<String, Int>()
                 it.split(" ").map { key ->

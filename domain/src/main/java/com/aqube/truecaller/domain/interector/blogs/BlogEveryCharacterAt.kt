@@ -12,7 +12,7 @@ class BlogEveryCharacterAt @Inject constructor(
 
     override fun buildUseCaseObservable(params: Params?): Observable<String> {
         if (params == null) return Observable.error(IllegalArgumentException("Params character at index can't be null!"))
-        return blogRepository.getBlogs()
+        return blogRepository.getBlog()
             .map {
                 val sb = StringBuilder()
                 var counter = params.characterIndex - 1

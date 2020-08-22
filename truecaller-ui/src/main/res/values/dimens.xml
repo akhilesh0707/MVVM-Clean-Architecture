@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="activity_default_padding">16dp</dimen>
+    <dimen name="title_text_font_size">18sp</dimen>
+    <dimen name="title_text_margin_bottom">5dp</dimen>
 </resources>

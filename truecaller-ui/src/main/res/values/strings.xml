@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Truecaller Task</string>
-    <string name="fetch_blog">Fetch Blogs</string>
+    <string name="fetch_blog">Fetch Blog</string>
     <string name="true_caller_tenth_character">Truecaller 10th Character</string>
     <string name="true_caller_every_tenth_character">Truecaller Every 10th Character</string>
     <string name="true_caller_word_counter">Truecaller Word Counter</string>

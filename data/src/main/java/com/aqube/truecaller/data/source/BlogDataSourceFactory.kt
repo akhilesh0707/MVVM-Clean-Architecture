@@ -6,7 +6,7 @@ import javax.inject.Inject
 open class BlogDataSourceFactory @Inject constructor(
     private val blogRemoteDataSource: BlogRemoteDataSource
 ) {
-    open fun getDataSource(blogCached: Boolean): BlogDataSource {
+    open fun getDataSource(): BlogDataSource {
         return blogRemoteDataSource
     }
 }

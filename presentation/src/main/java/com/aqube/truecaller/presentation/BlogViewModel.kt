@@ -13,7 +13,6 @@ import javax.inject.Inject
 
 sealed class BlogUIModel : TransientAwareUiModel() {
     object Loading : BlogUIModel()
-    object HideLoading : BlogUIModel()
     data class Error(var error: String = "") : BlogUIModel()
     data class TenthCharacter(val tenthCharacter: String) : BlogUIModel()
     data class EveryTenthCharacter(val everyTenthCharacter: String) : BlogUIModel()
@@ -29,9 +28,9 @@ class BlogViewModel @Inject constructor(
 
     private val _planetUIModel = TransientAwareConsumerLiveData<BlogUIModel>()
     private var planetUIModel: LiveData<BlogUIModel> = _planetUIModel
-    private val charIndex =10
+    private val charIndex = 10
 
-    fun getBlogs(): LiveData<BlogUIModel> {
+    fun getBlog(): LiveData<BlogUIModel> {
         return planetUIModel
     }
 
@@ -62,7 +61,6 @@ class BlogViewModel @Inject constructor(
             .onErrorReturn { BlogUIModel.Error(it.message ?: "") }
             .subscribe(_planetUIModel)
             .addTo(disposable)
-
     }
 
 }

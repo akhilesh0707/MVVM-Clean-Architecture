@@ -12,7 +12,7 @@ class BlogCharacterAt @Inject constructor(
 
     override fun buildUseCaseObservable(params: Params?): Observable<String> {
         if (params == null) return Observable.error(IllegalArgumentException("Params character index can't be null!"))
-        return blogRepository.getBlogs()
+        return blogRepository.getBlog()
             .flatMap {
                 Observable.just(
                     if (it.length > params.index) {
