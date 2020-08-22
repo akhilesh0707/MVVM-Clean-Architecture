@@ -52,7 +52,7 @@ class MainActivity : BaseActivity() {
             is BlogUIModel.Error -> {
                 progressBar.makeGone()
                 findViewById<View?>(android.R.id.content)?.let { view ->
-                    Snackbar.make(view, uiModel.error, Snackbar.LENGTH_INDEFINITE).show()
+                    Snackbar.make(view, uiModel.error, Snackbar.LENGTH_LONG).show()
                 }
             }
         }

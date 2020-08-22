@@ -1,8 +1,8 @@
 package com.aqube.truecaller.presentation
 
 import androidx.lifecycle.LiveData
-import com.aqube.truecaller.domain.interector.blogs.Blog10thCharacter
-import com.aqube.truecaller.domain.interector.blogs.BlogEvery10thCharacter
+import com.aqube.truecaller.domain.interector.blogs.BlogCharacterAt
+import com.aqube.truecaller.domain.interector.blogs.BlogEveryCharacterAt
 import com.aqube.truecaller.domain.interector.blogs.BlogWordCounter
 import com.aqube.truecaller.presentation.extension.addTo
 import com.aqube.truecaller.presentation.extension.runOnBackground
@@ -22,35 +22,32 @@ sealed class BlogUIModel : TransientAwareUiModel() {
 
 
 class BlogViewModel @Inject constructor(
-    private val blog10thCharacter: Blog10thCharacter,
-    private val blogEvery10thCharacter: BlogEvery10thCharacter,
+    private val blogCharacterAt: BlogCharacterAt,
+    private val blogEveryCharacterAt: BlogEveryCharacterAt,
     private val blogWordCounter: BlogWordCounter
 ) : BaseViewModel() {
 
     private val _planetUIModel = TransientAwareConsumerLiveData<BlogUIModel>()
     private var planetUIModel: LiveData<BlogUIModel> = _planetUIModel
+    private val charIndex =10
 
     fun getBlogs(): LiveData<BlogUIModel> {
         return planetUIModel
     }
 
     fun fetchBlog() {
-        blog10thCharacter.execute()
+        blogCharacterAt.execute(BlogCharacterAt.Params.characterAt(charIndex))
             .runOnBackground(schedulerProvider)
-            .map {
-                BlogUIModel.TenthCharacter(it) as BlogUIModel
-            }
+            .map { BlogUIModel.TenthCharacter(it) as BlogUIModel }
             .startWith(BlogUIModel.Loading)
             .doOnError { Timber.e(it) }
             .onErrorReturn { BlogUIModel.Error(it.message ?: "") }
             .subscribe(_planetUIModel)
             .addTo(disposable)
 
-        blogEvery10thCharacter.execute()
+        blogEveryCharacterAt.execute(BlogEveryCharacterAt.Params.everyCharacter(charIndex))
             .runOnBackground(schedulerProvider)
-            .map {
-                BlogUIModel.EveryTenthCharacter(it) as BlogUIModel
-            }
+            .map { BlogUIModel.EveryTenthCharacter(it) as BlogUIModel }
             .startWith(BlogUIModel.Loading)
             .doOnError { Timber.e(it) }
             .onErrorReturn { BlogUIModel.Error(it.message ?: "") }
@@ -59,9 +56,7 @@ class BlogViewModel @Inject constructor(
 
         blogWordCounter.execute()
             .runOnBackground(schedulerProvider)
-            .map {
-                BlogUIModel.WordCount(it) as BlogUIModel
-            }
+            .map { BlogUIModel.WordCount(it) as BlogUIModel }
             .startWith(BlogUIModel.Loading)
             .doOnError { Timber.e(it) }
             .onErrorReturn { BlogUIModel.Error(it.message ?: "") }

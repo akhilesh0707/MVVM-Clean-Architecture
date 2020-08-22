@@ -3,6 +3,7 @@ package com.aqube.truecaller.domain.interector.blogs
 import com.aqube.truecaller.domain.interector.ObservableUseCase
 import com.aqube.truecaller.domain.repository.BlogRepository
 import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class BlogWordCounter @Inject constructor(
@@ -25,6 +26,6 @@ class BlogWordCounter @Inject constructor(
                     sb.append(map.key.replace("\n", "") + " = \t" + map.value + "\n")
                 }
                 sb.toString()
-            }
+            }.subscribeOn(Schedulers.io())
     }
 }
