@@ -7,10 +7,10 @@ An Android Clean Architecture app written in Kotlin, using Rxjava, Android Archi
 ## Architecture
 Uses concepts of the notorious Uncle Bob's architecture called [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).</br>
 
-* Independent of Frameworks.
-* Testable.
-* Independent of UI.
-* Independent of Database.
+* Better separation of concerns. Each module has a clear API., Feature related classes life in different modules and can't be referenced without explicit module dependency.
+* Features can be developed in parallel eg. by different teams
+* Each feature can be developed in isolation, independently from other features
+* faster compile time
 
 ## Modules:
 * **truecaller-ui** - It uses the all the components and class releated to Android Framework. It gets the data from presentation layer and shows on UI.  **access all the modules**
@@ -20,7 +20,6 @@ Uses concepts of the notorious Uncle Bob's architecture called [Clean Architectu
 * **presentation** - MVVM with ViewModels exposing LiveData that the UI consume. The ViewModel does not know anything about it's consumers - Android module that **can only access domain module**
 
 ## Tech Stack:
-
 * [RX Java][1] A library for composing asynchronous and event-based programs using observable sequences for the Java VM.
 * [RX Kotlin][2] RxJava bindings for Kotlin.
 * [RX Android][3] RxJava bindings for Android.
