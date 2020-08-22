@@ -13,5 +13,15 @@ class BlogEvery10thCharacter @Inject constructor(
 
     override fun buildUseCaseObservable(params: Nothing?): Observable<String> {
         return blogRepository.getBlogs()
+            .map {
+                val sb = StringBuilder()
+                var counter = 9
+                val charList = it.toList()
+                while (charList.size > counter) {
+                    sb.append(charList[counter])
+                    counter += 10
+                }
+                sb.toString()
+            }
     }
 }

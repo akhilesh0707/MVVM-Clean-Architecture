@@ -14,7 +14,11 @@ class Blog10thCharacter @Inject constructor(
     override fun buildUseCaseObservable(params: Nothing?): Observable<String> {
         return blogRepository.getBlogs()
             .flatMap {
-                Observable.just(it[10].toString())
+                Observable.just(
+                    if (it.length > 9) {
+                        it[9].toString()
+                    } else ""
+                )
             }
     }
 }
