@@ -7,7 +7,6 @@ import io.reactivex.plugins.RxJavaPlugins
 import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
-import java.util.concurrent.Executor
 
 class RxImmediateSchedulerRule : TestRule {
     private val immediate = object : Scheduler() {

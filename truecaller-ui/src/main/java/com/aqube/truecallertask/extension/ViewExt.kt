@@ -16,9 +16,3 @@ fun View.makeVisible() {
     this.visibility = View.VISIBLE
 }
 
-/**
- * Shorthand extension function to make view invisible
- */
-fun View.makeInvisible() {
-    this.visibility = View.INVISIBLE
-}
