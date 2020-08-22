@@ -1,3 +1,6 @@
+[![Akhilesh StackOverflow](https://img.shields.io/badge/Akhilesh-StackOverflow-orange.svg?style=for-the-badge)](https://stackoverflow.com/users/1548824/akhilesh0707)
+[![Akhilesh LinkedIn](https://img.shields.io/badge/Akhilesh-LinkedIn-blue.svg?style=for-the-badge)](https://www.linkedin.com/in/akhilesh0707/)
+
 # Truecaller task
 An Android Clean Architecture app written in Kotlin, using Rxjava, Android Architecture Components and used Dagger2 for Dependency Injection.
 
@@ -48,7 +51,7 @@ Uses concepts of the notorious Uncle Bob's architecture called [Clean Architectu
 [13]: https://github.com/google/gson
 [14]: http://square.github.io/okhttp/
 
-## - TODO
+## TODO
 1. Instrumentation test cases to be added.
 2. Write more test cases (unit test)
 3. Improve UI
