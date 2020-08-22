@@ -48,4 +48,5 @@ dependencies {
     testImplementation presentationTestDependencies.mockitoKotlin
     testImplementation presentationTestDependencies.robolectric
     testImplementation presentationTestDependencies.archTesting
+    testImplementation dataTestDependencies.mockitoInline
 }

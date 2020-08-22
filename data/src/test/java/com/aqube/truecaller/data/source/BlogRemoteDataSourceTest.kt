@@ -1,60 +1,50 @@
-package com.aqube.truecaller.data
+package com.aqube.truecaller.data.source
 
 import com.aqube.truecaller.data.BlogFactory.EXCEPTION
 import com.aqube.truecaller.data.BlogFactory.SUCCESS
-import com.aqube.truecaller.data.repository.BlogDataSource
-import com.aqube.truecaller.data.source.BlogDataSourceFactory
+import com.aqube.truecaller.data.repository.BlogRemote
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import kotlin.test.assertNotNull
 
 @RunWith(JUnit4::class)
-class BlogDataRepositoryTest {
+class BlogRemoteDataSourceTest {
 
-    private val factory = mock<BlogDataSourceFactory>()
-    private val dataSource = mock<BlogDataSource>()
-    private val SUT = BlogDataRepository(factory)
-
-    @Before
-    fun setUp() {
-        stubFactoryGetDataSource()
-    }
+    private val remoteSource = mock<BlogRemote>()
+    private val SUT = BlogRemoteDataSource(remoteSource)
 
     @Test
     fun `should not be null`() {
-        assertNotNull(factory)
+        assertNotNull(remoteSource)
         assertNotNull(SUT)
     }
 
     @Test
-    fun `call getBlog and get observable with return complete`() {
+    fun `call getBlog and get observable with return success complete`() {
         // Arrange
         stubGetBlog(Observable.just(SUCCESS))
         // Act
         val testObserver = SUT.getBlog().test()
         // Assert
         testObserver.assertComplete()
-        verify(factory).getDataSource()
-        verify(factory.getDataSource()).getBlog()
+        verify(remoteSource).getBlog()
     }
 
     @Test
-    fun `call getBlog and get observable with return value zero`() {
+    fun `call getBlog and get observable with return zero emits`() {
         // Arrange
         stubGetBlog(Observable.empty())
         // Act
         val testObserver = SUT.getBlog().test()
         // Assert
         testObserver.assertValueCount(0)
-        verify(factory).getDataSource()
-        verify(factory.getDataSource()).getBlog()
+        verify(remoteSource).getBlog()
     }
 
     @Test
@@ -65,17 +55,12 @@ class BlogDataRepositoryTest {
         val testObserver = SUT.getBlog().test()
         // Assert
         testObserver.assertErrorMessage(EXCEPTION)
-        verify(factory).getDataSource()
-        verify(factory.getDataSource()).getBlog()
+        verify(remoteSource).getBlog()
     }
 
     // region -------------------------------------------------------------------------------------
-    private fun stubFactoryGetDataSource() {
-        whenever(factory.getDataSource()) doReturn dataSource
-    }
-
     private fun stubGetBlog(stub: Observable<String>) {
-        whenever(dataSource.getBlog()) doReturn stub
+        whenever(remoteSource.getBlog()) doReturn stub
     }
     // endregion ----------------------------------------------------------------------------------
 }

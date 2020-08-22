@@ -15,9 +15,9 @@ class BlogCharacterAt @Inject constructor(
         return blogRepository.getBlog()
             .flatMap {
                 Observable.just(
-                    if (it.length > params.index) {
+                    if (it.length > params.index)
                         it[params.index].toString()
-                    } else ""
+                    else ""
                 )
             }.subscribeOn(Schedulers.io())
     }

@@ -38,6 +38,7 @@ ext {
     assertJVersion = '3.11.1'
     mockitoKotlinVersion = '2.1.0'
     mockitoAndroidVersion = '2.23.4'
+    mockitoInlineVersion = '2.13.0'
     robolectricVersion = '4.1'
     espressoVersion = '3.1.1'
     archCoreTestingVersion = '2.0.0'
@@ -74,23 +75,24 @@ ext {
             kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
             assertJ      : "org.assertj:assertj-core:$assertJVersion",
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            mockitoInline: "org.mockito:mockito-inline:$mockitoInlineVersion",
             robolectric  : "org.robolectric:robolectric:$robolectricVersion"
     ]
 
     remoteDependencies = [
-            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            rxKotlin               : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
-            rxJava                 : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            gson                   : "com.google.code.gson:gson:$gsonVersion",
-            javaxAnnotations       : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
-            javaxInject            : "javax.inject:javax.inject:$javaxInjectionVersion",
-            androidAnnotations     : "androidx.annotation:annotation:$axAnnotation",
-            okhttp                 : "com.squareup.okhttp3:okhttp:$okhttpVersion",
-            okhttpInterceptor      : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
-            retrofit               : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitConverter      : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            retrofitAdapter        : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
-            scalerConvertor        : "com.squareup.retrofit2:converter-scalars:$scalarVersion"
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxKotlin          : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxJava            : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            gson              : "com.google.code.gson:gson:$gsonVersion",
+            javaxAnnotations  : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            javaxInject       : "javax.inject:javax.inject:$javaxInjectionVersion",
+            androidAnnotations: "androidx.annotation:annotation:$axAnnotation",
+            okhttp            : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttpInterceptor : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitAdapter   : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            scalerConvertor   : "com.squareup.retrofit2:converter-scalars:$scalarVersion"
     ]
 
     remoteTestDependencies = [
@@ -114,7 +116,7 @@ ext {
             lifecycleRuntime   : "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion",
             lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
             lifecycleCommon    : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
-            timber                : "com.jakewharton.timber:timber:$timberVersion",
+            timber             : "com.jakewharton.timber:timber:$timberVersion",
     ]
 
     presentationTestDependencies = [
@@ -122,6 +124,7 @@ ext {
             assertJ      : "org.assertj:assertj-core:$assertJVersion",
             kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            mockitoInline: "org.mockito:mockito-inline:$mockitoInlineVersion",
             robolectric  : "org.robolectric:robolectric:$robolectricVersion",
             archTesting  : "androidx.arch.core:core-testing:$archCoreTestingVersion"
     ]

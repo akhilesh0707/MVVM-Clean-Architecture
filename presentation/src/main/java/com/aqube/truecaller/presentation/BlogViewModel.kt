@@ -19,7 +19,6 @@ sealed class BlogUIModel : TransientAwareUiModel() {
     data class WordCount(val wordCount: String) : BlogUIModel()
 }
 
-
 class BlogViewModel @Inject constructor(
     private val blogCharacterAt: BlogCharacterAt,
     private val blogEveryCharacterAt: BlogEveryCharacterAt,
