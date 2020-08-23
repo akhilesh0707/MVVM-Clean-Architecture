@@ -21,11 +21,11 @@ class BlogWordCounter @Inject constructor(
                 map
             }
             .map {
-                val sb = StringBuilder()
+                val stringBuilder = StringBuilder()
                 it.forEach { map ->
-                    sb.append(map.key.replace("\n", "") + " = \t" + map.value + "\n")
+                    stringBuilder.append(map.key.replace("\n", "") + " = \t" + map.value + "\n")
                 }
-                sb.toString()
+                stringBuilder.toString()
             }.subscribeOn(Schedulers.io())
     }
 }

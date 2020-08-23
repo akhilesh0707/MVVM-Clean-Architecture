@@ -14,14 +14,14 @@ class BlogEveryCharacterAt @Inject constructor(
         if (params == null) return Observable.error(IllegalArgumentException("Params character at index can't be null!"))
         return blogRepository.getBlog()
             .map {
-                val sb = StringBuilder()
+                val stringBuilder = StringBuilder()
                 var counter = params.characterIndex - 1
                 val charList = it.toList()
                 while (charList.size > counter) {
-                    sb.append(charList[counter])
+                    stringBuilder.append(charList[counter])
                     counter += params.characterIndex
                 }
-                sb.toString()
+                stringBuilder.toString()
             }.subscribeOn(Schedulers.io())
     }
 
