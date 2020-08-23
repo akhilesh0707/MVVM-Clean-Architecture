@@ -13,11 +13,11 @@ Uses concepts of the notorious Uncle Bob's architecture called [Clean Architectu
 * faster compile time
 
 ## Modules:
-* **truecaller-ui** - It uses the all the components and class releated to Android Framework. It gets the data from presentation layer and shows on UI.  **access all the modules**
-* **data** - The data layer implements the repository interface that the domain layer defines. This layer provide a single source of truth for data - Kotlin module that **can only access domain module**
-* **remote** - Handles data interacting with the network **can only access data module**
-* **domain** - The domain layer contains the UseCases that encapsulate a single and very specific task that can be performed. This task is part of the business logic of the application - Kotlin module that **cannot access any other module**
-* **presentation** - MVVM with ViewModels exposing LiveData that the UI consume. The ViewModel does not know anything about it's consumers - Android module that **can only access domain module**
+* **truecaller-ui** - It uses all the components and classes releated to Android Framework. It gets the data from presentation layer and shows on UI. (**access all the modules**)
+* **data** - The data layer implements the repository interface that the domain layer defines. This layer provide a single source of truth for data. (Kotlin module that **can only access domain module**)
+* **remote** - Handles data interacting with the network. (**can only access data module**)
+* **domain** - The domain layer contains the UseCases that encapsulate a single and very specific task that can be performed. This task is part of the business logic of the application. (Kotlin module that **cannot access any other module**)
+* **presentation** - MVVM with ViewModels exposing LiveData that the UI consume. The ViewModel does not know anything about it's consumers. (Android module that **can only access domain module**)
 
 ## Tech Stack:
 * [RX Java][1] A library for composing asynchronous and event-based programs using observable sequences for the Java VM.
