@@ -50,10 +50,14 @@ Uses concepts of the notorious Uncle Bob's architecture called [Clean Architectu
 [13]: https://github.com/google/gson
 [14]: http://square.github.io/okhttp/
 
+## Testing
+Currently covered domain, data, presentation and remote module with moderate test coverage 
+
 ## TODO
-1. Instrumentation test cases to be added.
-2. Write more test cases (unit test)
+1. Instrumentation test cases.
+2. More unit test cases 
 3. Improve UI
+4. Internet connectivity
 
 
 
