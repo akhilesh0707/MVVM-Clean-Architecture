@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
  */
 inline fun <reified T : ViewModel> AppCompatActivity.bindViewModel(lazyViewModelProviderFactory: Lazy<ViewModelProvider.Factory>): Lazy<T> {
     return lazy {
-        ViewModelProviders.of(this, lazyViewModelProviderFactory.value).get(T::class.java)
+        ViewModelProvider(this, lazyViewModelProviderFactory.value).get(T::class.java)
     }
 }
 
