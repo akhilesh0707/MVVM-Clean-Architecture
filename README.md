@@ -58,6 +58,3 @@ Currently covered domain, data, presentation and remote module with moderate tes
 2. More unit test cases 
 3. Improve UI
 4. Internet connectivity
-
-
-
