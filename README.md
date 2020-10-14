@@ -1,7 +1,7 @@
 [![Akhilesh StackOverflow](https://img.shields.io/badge/Akhilesh-StackOverflow-orange.svg?style=for-the-badge)](https://stackoverflow.com/users/1548824/akhilesh0707)
 [![Akhilesh LinkedIn](https://img.shields.io/badge/Akhilesh-LinkedIn-blue.svg?style=for-the-badge)](https://www.linkedin.com/in/akhilesh0707/)
 
-# Truecaller task
+# MVVM Clearn Architecture 
 An Android Clean Architecture app written in Kotlin, using Rxjava, Android Architecture Components and used Dagger2 for Dependency Injection.
 
 ## Architecture
